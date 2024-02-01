@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from '@chakra-ui/react';
+import { Flex, Skeleton, Text } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header';
 import DataList from '../components/DataList';
@@ -43,12 +43,14 @@ const HomePage = () => {
             {
                 isLoading? (
                     <ArticleSkeletons />
-                ) : (
+                ) : data.length > 0 ?(
                       data.map((movie,index) => {
                         return (
                             <DataList moviedata={movie}  key={index} />
                         )
                       })
+                ) : (
+                  <Text textAlign="center">No items Found</Text>
                 )
             }
         </Flex>
