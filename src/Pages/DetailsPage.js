@@ -1,4 +1,4 @@
-import { Button, Flex, Image, Text } from '@chakra-ui/react';
+import { Button, Flex, Image, Text, Spinner } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
@@ -23,7 +23,7 @@ const DetailsPage = () => {
           imageURL === undefined ? (
             <Image src='/imageNotFound.png' alt='' mt={100} borderRadius="10px" boxSize={300} />
           ) : (
-            <Image mt={100} borderRadius="10px" boxSize={300} alt='' src={RoutedData?.show.image.original} />
+            <Image mt={100} fallbackSrc={<Spinner />} borderRadius="10px" boxSize={300} alt='' src={RoutedData?.show.image.original} />
           )
         }
       </Flex>
